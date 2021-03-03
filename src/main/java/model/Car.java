@@ -1,13 +1,13 @@
 package model;
 
 public class Car {
-    int id;
-    String brand;
-    String model;
-    int issueYear;
-    String color;
-    int price;
-    String registrationNumber;
+    private int id;
+    private String brand;
+    private String model;
+    private int issueYear;
+    private String color;
+    private int price;
+    private String registrationNumber;
 
     public Car(int id, String brand, String model, int issueYear) {
         this.id = id;
