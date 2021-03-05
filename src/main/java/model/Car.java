@@ -1,22 +1,25 @@
 package model;
 
+import model.enums.Brand;
+import model.enums.Color;
+
 public class Car {
-    private int id;
-    private String brand;
-    private String model;
-    private int issueYear;
-    private String color;
+    private final int id;
+    private final Brand brand;
+    private final String model;
+    private final int issueYear;
+    private Color color;
     private int price;
     private String registrationNumber;
 
-    public Car(int id, String brand, String model, int issueYear) {
+    public Car(int id, Brand brand, String model, int issueYear) {
         this.id = id;
         this.brand = brand;
         this.model = model;
         this.issueYear = issueYear;
     }
 
-    public Car(int id, String brand, String model, int issueYear, String color, String registrationNumber, int price) {
+    public Car(int id, Brand brand, String model, int issueYear, Color color, int price, String registrationNumber) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -28,14 +31,14 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
+        return "Car {" +
                 "id=" + id +
-                ", brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", issueYear=" + issueYear +
-                ", color='" + color + '\'' +
-                ", price=" + price +
-                ", registrationNumber='" + registrationNumber + '\'' +
+                ", brand = " + brand +
+                ", model = '" + model + '\'' +
+                ", issueYear = " + issueYear +
+                ", color = " + color +
+                ", price = " + price +
+                ", registrationNumber = '" + registrationNumber + '\'' +
                 '}';
     }
 
@@ -44,7 +47,7 @@ public class Car {
     }
 
     public String getBrand() {
-        return brand;
+        return brand.toString();
     }
 
     public String getModel() {
@@ -56,10 +59,13 @@ public class Car {
     }
 
     public String getColor() {
-        return color;
+        if (color == null) {
+            return "None";
+        }
+        return color.toString();
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
@@ -72,6 +78,9 @@ public class Car {
     }
 
     public String getRegistrationNumber() {
+        if (registrationNumber == null) {
+            return "None";
+        }
         return registrationNumber;
     }
 
